@@ -21,7 +21,12 @@ app.post("/search",(req,res)=>{
 })
 
 app.post("/view",(req,res)=>{
-    res.send("view")
+    advisormodel.find().then(
+        (data)=>{
+            res.json(data)
+        }
+    ).catch()
+    
 })
 
 app.listen(8080,()=>{
