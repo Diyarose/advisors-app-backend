@@ -17,7 +17,17 @@ app.post("/add",(req,res)=>{
 })
 
 app.post("/search",(req,res)=>{
-    res.send("search")
+    let input=req.body
+    advisormodel.find(input).then(
+        (data)=>{
+            res.json(data)
+        }
+    ).catch(
+        (error)=>{
+            res.json(error)
+        }
+    )
+    
 })
 
 app.post("/view",(req,res)=>{
